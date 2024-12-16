@@ -1,0 +1,401 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cardsDistance: 30px;
+
+  --phoneWidth: 90%;
+  --desktopWidth: 1000px;
+}
+
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+/* navbar style*/
+.navbar-dropdown-button {
+  padding: 8px 12px !important;
+}
+.navbar-dropdown-button:active,
+.navbar-dropdown-button:focus,
+.navbar-dropdown-button:hover {
+  color: black !important;
+}
+
+main {
+  background-image: url("../public/background.png");
+  background-repeat: repeat;
+}
+
+.blur-effect {
+  filter: blur(1px);
+}
+
+a,
+a:active {
+  color: black !important;
+}
+
+/*hero banner*/
+.main-hero img {
+  object-fit: cover;
+  background-color: #00000061;
+}
+
+.hero-text-2 {
+  animation: text-reveal 2s ease forwards;
+}
+
+/*space component styles*/
+.space-component-inner {
+  width: var(--phoneWidth);
+}
+
+.space-component-arrow {
+  border-bottom: 60px solid rgba(128, 128, 128, 0.125);
+  border-left: 60px solid rgba(128, 128, 128, 0.125);
+}
+
+.about-us-inner-container {
+  width: var(--phoneWidth);
+}
+
+/* News Component styles */
+.news-component {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsComponent-inner-container {
+  overflow: hidden;
+  display: grid;
+  grid-template: 1fr / 30% 1fr;
+  width: var(--phoneWidth);
+  overflow: hidden;
+}
+
+.newsComponent-left-col {
+  width: 100%;
+  /* min-width: 80px; */
+  aspect-ratio: 577 / 100;
+  /* height: 100%; */
+  /* background-color: #007bff; */
+  display: flex;
+  flex-direction: column;
+}
+
+.newsComponent-carouse-text-container {
+  position: relative;
+  height: 100%;
+  /* min-height: 10px; */
+  width: 100%;
+  overflow: hidden;
+}
+
+.newsComponent-carouse-text {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0%);
+  opacity: 0;
+  transition: all 1s;
+  /* word-break: break-all; */
+  overflow-wrap: break-word;
+  white-space: normal;
+  hyphens: auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* -webkit-line-clamp: 7; */
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  font-size: 0.7rem;
+  background-color: white;
+}
+
+.newsComponent-carouse-text h4 {
+  -webkit-line-clamp: 7;
+}
+
+.newsComponent-carouse-active-text {
+  transform: translate(0%, 0%);
+  opacity: 1;
+}
+
+/* stack card carousel styles*/
+.stack-cards-carousel {
+  width: 100%;
+  aspect-ratio: 183 / 115;
+}
+
+.newsComponent-carousel-container {
+  margin-left: auto;
+  width: calc(100% - var(--cardsDistance));
+}
+
+.stack-cards-carousel-inner-container {
+  width: 100%;
+  height: 100%;
+  /* width: calc(100%  - (var(--cardsDistance) * 2) + 10px); */
+  /* aspect-ratio: 183 / 100; */
+  position: relative;
+}
+
+.stack-cards-carousel-item {
+  position: absolute;
+  /* width: calc(100% - (2* var(--cardsDistance))); */
+  /* width:  150px; */
+  height: calc(100% - (2 * var(--cardsDistance)));
+  aspect-ratio: 183 / 100;
+  margin-top: calc(2 * var(--cardsDistance));
+  margin-right: calc(2 * var(--cardsDistance));
+  margin-bottom: 0px;
+  right: 0;
+  top: 0;
+  transition: all 1s;
+  border-top: 14px solid white;
+  border-right: 14px solid white;
+  background-color: #b67f7f;
+}
+
+.stack-cards-carousel-item-2 {
+  background-color: #d8a04a;
+}
+.stack-cards-carousel-item-3 {
+  background-color: #444883;
+}
+.stack-cards-carousel-item-4 {
+  background-color: #6d9767;
+}
+.stack-cards-carousel-item-5 {
+  background-color: #784272;
+}
+
+.stack-cards-carousel-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.arrow-Container {
+  z-index: 10;
+  position: absolute;
+  /* width: calc(100% - (2* var(--cardsDistance))); */
+  /* width:  150px; */
+  height: calc(100% - (2 * var(--cardsDistance)));
+  aspect-ratio: 183 / 100;
+  margin-top: calc(2 * var(--cardsDistance));
+  margin-right: calc(2 * var(--cardsDistance));
+  margin-bottom: 0px;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 14px;
+  padding-top: 14px;
+}
+
+.arrow-right,
+.arrow-left {
+  background-color: #00000020;
+  height: 50px;
+  width: 20px;
+  cursor: pointer;
+  position: relative;
+  margin: 0px;
+  color: #ffffff95;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-right:active svg,
+.arrow-left:active svg {
+  transform: scale(0.8);
+}
+
+/*partners component*/
+.partnersComponent-row-1 {
+  width: var(--phoneWidth);
+}
+
+.slick-slide div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-initialized {
+  position: relative;
+}
+
+.partner-carousel-images-container {
+  display: flex !important;
+}
+
+.slick-prev {
+  top: 120% !important;
+  left: 100% !important;
+  transform: translateX(-96%) rotate(180deg) !important;
+  padding: 5px !important;
+}
+.slick-next {
+  top: 120% !important;
+  transform: translateX(-200%) rotate(180deg) !important;
+  padding: 5px !important;
+}
+
+/*About us page styles*/
+.about-us-page-inner-container {
+  width: var(--phoneWidth);
+}
+
+.about-us-page-image-title-inner::before {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background-color: #ffffff;
+  position: absolute;
+  left: -20px;
+  bottom: -10px;
+}
+
+.about-us-page-image-title-inner::after {
+  content: "";
+  width: 3px;
+  height: 50px;
+  background-color: #ffffff;
+  position: absolute;
+  left: -10px;
+  bottom: -20px;
+}
+
+/*partners page styles*/
+.partners-card-text-container a {
+  color: white !important;
+}
+
+/*contact page styles*/
+.contact-page-row-1 {
+  width: var(--phoneWidth);
+}
+
+.contac-page-info-container div {
+  box-shadow: 1px 1px 5px grey;
+}
+
+/*Reservation page styles*/
+.reservation-page-inner-container {
+  width: var(--phoneWidth);
+}
+
+/*footer styles*/
+.footer {
+  background-color: #dadada;
+}
+
+.footer-inner {
+  width: var(--phoneWidth);
+}
+
+.footer-icons-container li a {
+  transition: all 0.5s;
+}
+.footer-icons-container li:hover a {
+  background-color: black;
+  transform: rotateY(180deg);
+}
+
+.footer-icons-container li a svg {
+  transition: all 0.5s;
+}
+.footer-icons-container li:hover a svg {
+  transition: all 0.5s;
+  transform: rotateY(-180deg);
+}
+
+@keyframes text-reveal {
+  from {
+    opacity: 0;
+    text-shadow: 0 0 10px rgb(255, 255, 255), 0 0 20px rgb(255, 255, 255),
+      0 0 30px rgb(255, 255, 255), 0 0 40px rgb(255, 255, 255),
+      0 0 50px rgb(183, 174, 91);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  /*navbar styles*/
+  .navbar-dropdown-button {
+    padding: 0 !important;
+  }
+
+  /*partners component styles*/
+  .slick-prev {
+    top: -29% !important;
+    left: 0 !important;
+    transform: translateX(-100%) rotate(180deg) !important;
+    padding: 5px !important;
+  }
+  .slick-next {
+    top: 20% !important;
+    right: 100% !important;
+    transform: translateX(0%) rotate(180deg) !important;
+    padding: 5px !important;
+  }
+
+  /*about-us page styles*/
+  .about-us-page-image-title-inner::before {
+    transform: translate(-5px, 10px);
+  }
+
+  .about-us-page-image-title-inner::after {
+    transform: translate(-5px, 10px);
+  }
+}
+
+@media (min-width: 1200px) {
+  /*about-us componenet styles*/
+  .about-us-inner-container {
+    width: var(--desktopWidth);
+  }
+
+  /*newsComponent syles*/
+  .newsComponent-inner-container {
+    width: var(--desktopWidth);
+  }
+
+  /*partners component*/
+  .partnersComponent-row-1 {
+    width: var(--desktopWidth) !important;
+  }
+
+  /*About us page styles*/
+  .about-us-page-inner-container {
+    width: var(--desktopWidth);
+  }
+
+  /*contact page styles*/
+  .contact-page-row-1 {
+    width: var(--phoneWidth);
+  }
+
+  /*Reservation page styles*/
+  .reservation-page-inner-container {
+    width: var(--phoneWidth);
+  }
+
+  /*footer styles*/
+  .footer-inner {
+    width: var(--desktopWidth);
+  }
+}
