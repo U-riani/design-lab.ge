@@ -47,7 +47,7 @@ const BeforeAfterSlider = (props) => {
         alt="After"
       />
       <h1
-        className="hero-text text-center text-7xl text-black absolute px-2 pb-[4px]"
+        className="hero-text text-center text-7xl text-black absolute px-2 pb-[4px] "
         style={{
           top: "50%",
           left: `${50 + (mouseMoveX * 0.005)}%`,

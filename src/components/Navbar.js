@@ -42,8 +42,8 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 relative z-50">
-      <div className="w-screen flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="w-full border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 relative z-50">
+      <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -83,7 +83,7 @@ const Navbar = () => {
           } z-10 min-w-[120px] lg:block  absolute lg:relative lg:h-fit right-0 top-[72px] lg:top-0  transition-transform duration-300 ease-in-out lg:translate-x-0`}
           id="navbar-solid-bg"
         >
-          <ul className="h-[calc(100vh-72px)] px-3 lg:px-0 lg:h-fit lg:align-middle flex flex-col font-medium bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent dark:bg-gray-800 lg:dark:bg-transparent dark:border-gray-700">
+          <ul className="h-[calc(100vh-72px)] w-[142px] lg:w-fit px-3 lg:px-0 lg:h-fit lg:align-middle flex flex-col font-medium bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent dark:bg-gray-800 lg:dark:bg-transparent dark:border-gray-700">
             <li>
               <Link
                 to="/"
@@ -156,8 +156,8 @@ const Navbar = () => {
               </button>
               <div
                 id="dropdownNavbar"
-                className={`z-10 ${
-                  showDropdown ? "" : "hidden"
+                className={`z-10 transition-all duration-400 ${
+                  showDropdown ? "opacity-100" : "opacity-0 pointer-events-none	"
                 } font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 w-fit lg:absolute lg:mt-2`}
               >
                 <ul
@@ -165,20 +165,20 @@ const Navbar = () => {
                   aria-labelledby="dropdownLargeButton"
                 >
                   <li>
-                    <a
-                      href="/contact"
+                    <Link
+                      to="/contact"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       CONTACT
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="/reservation"
+                    <Link
+                      to="/reservation"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       RESERVATION
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

@@ -8,10 +8,10 @@ import BeforeAfterSlider from "../components/BeforeAfterSlider";
 const Layout = () => {
   return (
     <>
-      <header className="App-header fixed top-0 left-0 z-50">
+      <header className="App-header w-full fixed top-0 left-0 z-50">
         <Navbar />
       </header>
-      <main className="App overflow-x-hidden relative mt-[72px]">
+      <main className="App w-full overflow-x-hidden relative mt-[72px]">
         <div className="main-hero h-[calc(100vh-72px)] overflow-hidden">
           <BeforeAfterSlider
             beforeImage={"/slide1-b.jpg"}

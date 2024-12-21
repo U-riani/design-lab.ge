@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { apiVisitsSlice } from "./visitsSlice";
+import { apiAboutUsSlice } from "./aboutUsSlice";
 import { apiNewsSlice } from "./newsSlice";
 import { heroApiSlice } from "./heroSlice";
 
@@ -12,6 +13,7 @@ const store = configureStore({
   
     // partners: partnersReducer,
     // designers: designersReducer,
+    [apiAboutUsSlice.reducerPath]: apiAboutUsSlice.reducer,
     [apiNewsSlice.reducerPath]: apiNewsSlice.reducer,
     [apiVisitsSlice.reducerPath]: apiVisitsSlice.reducer,
     [partnersApiSlice.reducerPath]: partnersApiSlice.reducer,
@@ -21,6 +23,7 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       apiNewsSlice.middleware,
+      apiAboutUsSlice.middleware,
       apiVisitsSlice.middleware,
       heroApiSlice.middleware,
       partnersApiSlice.middleware,

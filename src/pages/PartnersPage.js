@@ -9,7 +9,7 @@ const PartnersPage = () => {
   const [rowNum, setRowNum] = useState(1);
   const [colNum, setColNum] = useState(1);
   const screenWidth = useScreenWidth();
-  console.log(screenWidth);
+  console.log(partnersData);
   useEffect(() => {
     if (partnersData) {
       if (screenWidth < 640) {

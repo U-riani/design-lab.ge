@@ -1,7 +1,12 @@
 import React from "react";
 import SpaceComponent from "../components/SpaceComponent";
+import { useGetAboutUsQuery } from "../data/aboutUsSlice";
+
+
 
 const AboutUsPage = () => {
+  const {data} = useGetAboutUsQuery();
+  console.log('-+about us+- ', data)
   return (
     <div className="about-us-page w-full flex flex-col items-center">
       <div className="space-compoenent-container w-full">
