@@ -35,11 +35,12 @@ export const heroApiSlice = createApi({
       invalidatesTags: (result, error, id) => [{ type: "Hero", id }],
     }),
     updateHero: builder.mutation({
-      query: ({ id, text, image }) => {
+      query: ({ id, text, image, image2 }) => {
         const formData = new FormData();
         formData.append("text[ge]", text.ge);
         formData.append("text[en]", text.en);
         if (image) formData.append("images", image);
+        if (image2) formData.append("images", image2);
         return {
           url: `heros/${id}`,
           method: "PATCH",

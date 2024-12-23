@@ -13,10 +13,14 @@ const EditHero = () => {
   const [updateCol, setUpdateCol] = useState(null);
   const [text, setText] = useState({ ge: "", en: "" });
   const [image, setImage] = useState(null);
+  const [image2, setImage2] = useState(null);
   const [id, setId] = useState(null);
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
+  };
+  const handleImageChange2 = (e) => {
+    setImage2(e.target.files[0]);
   };
 
   const handleTextChange = (lang, e) => {
@@ -29,7 +33,7 @@ const EditHero = () => {
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
     try {
-      await updateHero({ id, text, image }).unwrap();
+      await updateHero({ id, text, image, image2 }).unwrap();
       alert("Hero updated successfully!");
       setText({ ge: "", en: "" });
       setImage(null);
@@ -78,6 +82,13 @@ const EditHero = () => {
                   alt="Hero"
                 />
               </div>
+              <div className="w-full h-auto">
+                <img
+                  className="w-full rounded-md"
+                  src={item.image[1]}
+                  alt="Hero"
+                />
+              </div>
               <div>
                 <p className="text-lg font-semibold">{item.text?.ge}</p>
                 <p className="text-lg text-gray-600">{item.text?.en}</p>
@@ -105,6 +116,11 @@ const EditHero = () => {
                     <input
                       type="file"
                       onChange={handleImageChange}
+                      className="block w-full border rounded p-2"
+                    />
+                    <input
+                      type="file"
+                      onChange={handleImageChange2}
                       className="block w-full border rounded p-2"
                     />
                     <textarea

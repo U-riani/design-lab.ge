@@ -7,30 +7,22 @@ import { useLocalStorage } from "../context/LocalStorageContext";
 import SpaceComponent from "../components/SpaceComponent";
 
 const NewsPage = () => {
-  const { data: serverNewsData, isLoading, error } = useGetAllNewsQuery();
+  const { data, isLoading, error } = useGetAllNewsQuery();
+  const { localStorageData, syncLocalStorageData } = useLocalStorage();
   const { t, i18n } = useTranslation();
-  const { localStorageData, updateLocalStorageData } = useLocalStorage();
-  const newsData = localStorageData.allNews;
 
-  // Helper function to compare news data arrays
-  const isDataDifferent = (localData, serverData) => {
-    if (!localData || localData.length !== serverData.length) return true;
-    return JSON.stringify(localData) !== JSON.stringify(serverData);
-  };
-
-  // Load data from server and update localStorage if data has changed
   useEffect(() => {
-    if (serverNewsData && isDataDifferent(newsData, serverNewsData)) {
-      updateLocalStorageData("allNews", serverNewsData);
+    if (data) {
+      syncLocalStorageData("allNews", data);
     }
-  }, [serverNewsData]);
+  }, [data]);
 
   const extractTextRegex = (html) => {
     const textOnly = html.replace(/<[^>]*>/g, " ");
     return he.decode(textOnly);
   };
 
-  if (!newsData && isLoading) {
+  if (!localStorageData.allNews && isLoading) {
     return (
       <div className="getNewsComponent text-center">
         <div animation="border" variant="primary" />
@@ -52,8 +44,8 @@ const NewsPage = () => {
         <SpaceComponent />
       </div>
       <div className="news-page-inner-container">
-        {newsData &&
-          newsData.map((el, i) => (
+        {localStorageData.allNews &&
+          localStorageData.allNews.map((el, i) => (
             <div className="news-card bg-white flex p-5 mb-5" key={i}>
               <div className="news-card-left w-1/2 aspect-[5/3] flex flex-col pr-3">
                 <div className="news-page-text-container h-full overflow-hidden flex flex-col">

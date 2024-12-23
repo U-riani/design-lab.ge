@@ -11,8 +11,8 @@ const DesignersCard = ({ data }) => {
   const { i18n } = useTranslation();
   console.log(data);
   return (
-    <div className="designers-card-compoenent max-w-[300px] min-w-[200px] aspect-[4/5] bg-white mb-5 lg:mb-10">
-      <div className="designers-car-inner-container">
+    <div className="designers-card-compoenent w-[230px] min-w-[200px] h-[325px] bg-white mb-5 lg:mb-10">
+      <div className="designers-car-inner-container w-full h-full">
         <div className="card-top relative w-full h-[60%]">
           <div className="card-background-image h-[75%] w-full">
             <img
@@ -21,7 +21,7 @@ const DesignersCard = ({ data }) => {
               alt="background image"
             />
           </div>
-          <div className="card-profile-image absolute h-1/2 aspect-[1/1] bottom-0 left-1/2 translate-x-[-50%] rounded-full overflow-hidden">
+          <div className="card-profile-image absolute h-1/2 aspect-[1/1] bottom-0 left-1/2 translate-x-[-50%] rounded-full overflow-hidden border-2 border-white">
             <img
               className="w-full h-full object-cover"
               src={data.images[0]}
@@ -30,9 +30,12 @@ const DesignersCard = ({ data }) => {
           </div>
         </div>
         <div className="card-text-icon-container h-[40%] flex flex-col justify-evenly">
-          <div className="card-name py-3">
-            <p className="text-center font-semibold text-xl px-3">
-              {data.name[i18n.language]}
+          <div className="card-name px-2 pb-1">
+            <p className="text-center font-semibold text-base px-3">
+              {data.name[i18n.language].split(' ')[0]}
+            </p>
+            <p className="text-center font-semibold text-base px-3">
+              {data.name[i18n.language].split(' ')[1]}
             </p>
           </div>
           <div className="card-icons-container flex flex-row justify-evenly">

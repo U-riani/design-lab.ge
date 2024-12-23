@@ -98,6 +98,22 @@ const Navbar = () => {
                       edit About us
                     </Link>
                   </li>
+                  {/* <li>
+                    <Link
+                      to="add-about-us-main-page"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      add MainPageAbout 
+                    </Link>
+                  </li> */}
+                  <li>
+                    <Link
+                      to="edit-about-us-main-page"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      edit MainPageAbout
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </li>

@@ -131,6 +131,24 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
+              <Link
+                onClick={toggleMenu}
+                to="/reservation"
+                className="block py-2 px-3 lg:p-0 text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+              >
+                RESERVATION
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={toggleMenu}
+                to="/contact"
+                className="block py-2 px-3 lg:p-0 text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+              >
+                CONTACT
+              </Link>
+            </li>
+            {/* <li>
               <button
                 onClick={toggleDropdown}
                 id="dropdownNavbarLink"
@@ -182,7 +200,7 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-            </li>
+            </li> */}
             <li
               className="py-2 px-3 lg:py-0 flex justify-center align-center"
               onClick={() => handleLangChange()}

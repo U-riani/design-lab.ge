@@ -75,7 +75,7 @@ const AllReservations = () => {
           data.map((el, i) => (
             <div
               key={el._id}
-              className="visit-card w-[90%] bg-slate-300 rounded-lg p-4 flex flex-row justify-center"
+              className="visit-card w-[90%] bg-slate-300 rounded-lg p-4 flex flex-col justify-start items-start lg:flex-row lg:"
             >
               <div className="visit-card-inner-container flex flex-row flex-wrap gap-y-1 gap-x-3">
                 {el.visitDate && (

@@ -1,4 +1,3 @@
-// LocalStorageContext.js
 import React, { createContext, useContext, useState } from 'react';
 
 // Create the LocalStorage context
@@ -24,10 +23,24 @@ const saveToLocalStorage = (key, data) => {
   }
 };
 
+// Helper function to compare data arrays
+const isDataDifferent = (localData, serverData) => {
+  if (!localData || localData.length !== serverData.length) return true;
+  return JSON.stringify(localData) !== JSON.stringify(serverData);
+};
+
 // Create a provider component
 export const LocalStorageProvider = ({ children }) => {
   const [localStorageData, setLocalStorageData] = useState({
     allNews: loadFromLocalStorage('allNews'),
+    last5News: loadFromLocalStorage('last5News'),
+    allDesigners: loadFromLocalStorage('allDesigners'),
+    allHeros: loadFromLocalStorage('allHeros'),
+    allPartners: loadFromLocalStorage('allPartners'),
+    allProjects: loadFromLocalStorage('allProjects'),
+    allProjectsPage: loadFromLocalStorage('allProjectsPage'),
+    aboutUs: loadFromLocalStorage('aboutUs'),
+    aboutUsMainPage: loadFromLocalStorage('aboutUsMainPage'),
   });
 
   // Function to update localStorage data
@@ -39,8 +52,16 @@ export const LocalStorageProvider = ({ children }) => {
     }));
   };
 
+  // Function to sync localStorage data with server data
+  const syncLocalStorageData = (key, serverData) => {
+    const localData = localStorageData[key];
+    if (isDataDifferent(localData, serverData)) {
+      updateLocalStorageData(key, serverData);
+    }
+  };
+
   return (
-    <LocalStorageContext.Provider value={{ localStorageData, updateLocalStorageData }}>
+    <LocalStorageContext.Provider value={{ localStorageData, updateLocalStorageData, syncLocalStorageData }}>
       {children}
     </LocalStorageContext.Provider>
   );

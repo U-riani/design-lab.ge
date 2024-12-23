@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -40,7 +40,11 @@ function SampleNextArrow(props) {
 }
 
 const CarouselComponent = (props) => {
-  const partners = props.partners;
+  const [partners, setPartners] = useState(null);
+  useEffect(() => {
+    setPartners(props.partners);
+  }, [props]);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -90,23 +94,30 @@ const CarouselComponent = (props) => {
       },
     ],
   };
-  console.log('carouselCOmponent:', partners)
+  console.log("carouselCOmponent:", partners);
   return (
     <div className="slider-container py-5 bg-white flex flex-col justify-center">
-      <Slider {...settings}>
-        {partners &&
-          partners.map((el, i) => (
-            <div key={i} className="partner-carousel-images-container h-[110px] lg:h-[70px] flex align-center justify-center">
-              <img
-                className={`partner-carousel-image partner-carousel-image-${
-                  i + 1
-                } h-full object-contain flex align-center justify-center`}
-                src={el.image[0]}
-                alt=""
-              />
-            </div>
-          ))}
-      </Slider>
+      {partners && (
+        <Slider {...settings}>
+          {partners &&
+            partners.map((el, i) => {
+              return (
+                <div
+                  key={i}
+                  className="partner-carousel-images-container h-full lg:h-full flex items-center justify-center px-2 my-auto"
+                >
+                  <img
+                    className={`partner-carousel-image partner-carousel-image-${
+                      i + 1
+                    } mx-auto h-[100px] object-contain flex items-center justify-center`}
+                    src={el.image[0]}
+                    alt=""
+                  />
+                </div>
+              );
+            })}
+        </Slider>
+      )}
     </div>
   );
 };

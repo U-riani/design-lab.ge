@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
   screens: {
     'tablet': '640px',
     // => @media (min-width: 640px) { ... }

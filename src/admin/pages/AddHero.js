@@ -5,12 +5,16 @@ const AddHero = () => {
   const { data: allHeros } = useGetAllHerosQuery();
   const [createHero] = useCreateHeroMutation();
   const [imageFile, setImageFile] = useState(null);
+  const [imageFile2, setImageFile2] = useState(null);
   const [text, setText] = useState({ ge: "", en: "" });
   const [statusMessage, setStatusMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleImageChange = (e) => {
     setImageFile(e.target.files[0]);
+  };
+  const handleImageChange2 = (e) => {
+    setImageFile2(e.target.files[0]);
   };
 
   const handleTextChange = (lang, e) => {
@@ -34,6 +38,7 @@ const AddHero = () => {
     formData.append("text[ge]", text.ge);
     formData.append("text[en]", text.en);
     formData.append("images", imageFile);
+    formData.append("images", imageFile2);
 
     setIsLoading(true);
     try {
@@ -65,12 +70,23 @@ const AddHero = () => {
 
       <div className="mb-4">
         <label htmlFor="add-image" className="block text-sm font-medium text-gray-700">
-          Add Image
+          Add Image 1
         </label>
         <input
           type="file"
           id="add-image"
           onChange={handleImageChange}
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+      <div className="mb-4">
+        <label htmlFor="add-image" className="block text-sm font-medium text-gray-700">
+          Add Image 2
+        </label>
+        <input
+          type="file"
+          id="add-image"
+          onChange={handleImageChange2}
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
         />
       </div>

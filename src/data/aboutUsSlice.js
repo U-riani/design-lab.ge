@@ -48,6 +48,41 @@ export const apiAboutUsSlice = createApi({
       },
       invalidatesTags: (result, error, { id }) => [{ type: "AboutUs", id }],
     }),
+    getAboutUsMainPage: builder.query({
+      query: () => "aboutUs/mainPage",
+      providesTags: (result) =>
+        result ? result.map(({ _id }) => ({ type: "AboutUs", id: _id })) : [],
+    }),
+    createAboutUsMainPage: builder.mutation({
+      query: (formData) => ({
+        url: "aboutUs/mainPage",
+        method: "POST",
+        body: formData,
+      }),
+      invalidatesTags: [{ type: "AboutUs" }],
+    }),
+    updateAboutUsMainPage: builder.mutation({
+      query: ({ id, enText, geText, imageFile, imageFile2 }) => {
+        const formData = new FormData();
+        formData.append("id", id);
+        formData.append("text[en]", enText);
+        formData.append("text[ge]", geText);
+
+        if (imageFile) {
+          formData.append("images", imageFile);
+        }
+        if (imageFile2) {
+          formData.append("images", imageFile2);
+        }
+
+        return {
+          url: `aboutUs/mainPage`,
+          method: "PATCH",
+          body: formData,
+        };
+      },
+      invalidatesTags: (result, error, { id }) => [{ type: "AboutUs", id }],
+    }),
   }),
 });
 
@@ -55,4 +90,7 @@ export const {
   useGetAboutUsQuery,
   useCreateAboutUsMutation,
   useUpdateAboutUsMutation,
+  useGetAboutUsMainPageQuery,
+  useCreateAboutUsMainPageMutation,
+  useUpdateAboutUsMainPageMutation,
 } = apiAboutUsSlice;

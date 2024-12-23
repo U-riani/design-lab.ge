@@ -7,7 +7,7 @@
   --cardsDistance: 30px;
 
   --phoneWidth: 90%;
-  --desktopWidth: 1000px;
+  --desktopWidth: 1200px;
 
   --singleNewsDesktopWidth: 800px;
 }
@@ -17,7 +17,26 @@
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+div,
+button,
+ul,
+li {
+  font-family: "BPG LE Studio 04 Caps", sans-serif !important;
+}
+
 /* navbar style*/
+.App-header {
+  z-index: 999;
+}
+
 .navbar-dropdown-button {
   padding: 8px 12px !important;
 }
@@ -51,6 +70,30 @@ a:active {
   animation: text-reveal 2s ease forwards;
 }
 
+.main-hero .slick-list,
+.main-hero .slick-list .slick-track,
+.main-hero .slick-list .slick-track .slick-slide div {
+  height: 100% !important;
+}
+
+.main-hero .slick-prev {
+  z-index: 100;
+  top: 100%;
+  left: 50%;
+  transform: translate(calc(-2%), -28px) rotate(180deg);
+}
+.main-hero .slick-next {
+  z-index: 100;
+  top: 100%;
+  /* bottom: 0% !important; */
+  right: 50%;
+  transform: translate(calc(-1.5%), -28px) rotate(180deg);
+}
+
+.catch-divider:focus {
+  outline: none;
+}
+
 /*space component styles*/
 .space-component-inner {
   width: var(--phoneWidth);
@@ -76,8 +119,9 @@ a:active {
 
 .newsComponent-inner-container {
   overflow: hidden;
-  display: grid;
-  grid-template: 1fr / 30% 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: var(--phoneWidth);
   overflow: hidden;
 }
@@ -85,8 +129,8 @@ a:active {
 .newsComponent-left-col {
   width: 100%;
   /* min-width: 80px; */
-  aspect-ratio: 577 / 100;
-  /* height: 100%; */
+  /* aspect-ratio: 577 / 100; */
+  height: 50px;
   /* background-color: #007bff; */
   display: flex;
   flex-direction: column;
@@ -134,10 +178,11 @@ a:active {
 .stack-cards-carousel {
   width: 100%;
   aspect-ratio: 183 / 115;
+  overflow: hidden;
 }
 
 .newsComponent-carousel-container {
-  margin-left: auto;
+  /* margin-left: auto; */
   width: calc(100% - var(--cardsDistance));
 }
 
@@ -151,10 +196,10 @@ a:active {
 
 .stack-cards-carousel-item {
   position: absolute;
-  /* width: calc(100% - (2* var(--cardsDistance))); */
+  width: calc(100% - (2 * var(--cardsDistance)));
   /* width:  150px; */
   height: calc(100% - (2 * var(--cardsDistance)));
-  aspect-ratio: 183 / 100;
+  /* aspect-ratio: 183 / 100; */
   margin-top: calc(2 * var(--cardsDistance));
   margin-right: calc(2 * var(--cardsDistance));
   margin-bottom: 0px;
@@ -187,10 +232,10 @@ a:active {
 .arrow-Container {
   z-index: 10;
   position: absolute;
-  /* width: calc(100% - (2* var(--cardsDistance))); */
+  width: calc(100% - (2 * var(--cardsDistance)));
   /* width:  150px; */
   height: calc(100% - (2 * var(--cardsDistance)));
-  aspect-ratio: 183 / 100;
+  /* aspect-ratio: 183 / 100; */
   margin-top: calc(2 * var(--cardsDistance));
   margin-right: calc(2 * var(--cardsDistance));
   margin-bottom: 0px;
@@ -228,29 +273,35 @@ a:active {
   width: var(--phoneWidth);
 }
 
-.partnersComponent-container .slick-slide div {
+.partnersComponent-carousel
+  .slider-container
+  .slick-slider
+  .slick-list
+  .slick-track
+  .slick-slide
+  div,
+.partnersComponent-carousel
+  .slider-container
+  .slick-slider
+  .slick-list
+  .slick-track {
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.partnersComponent-container .slick-initialized {
-  position: relative;
-}
-
-.partnersComponent-container .partner-carousel-images-container {
-  display: flex !important;
+  align-items: center;
 }
 
 .partnersComponent-container .slick-prev {
-  top: 120% !important;
+  top: 50% !important;
   left: 100% !important;
-  transform: translateX(-96%) rotate(180deg) !important;
+  transform: translate(-50%, -50%) rotate(180deg) !important;
   padding: 5px !important;
+  z-index: 5;
 }
+
 .partnersComponent-container .slick-next {
-  top: 120% !important;
-  transform: translateX(-200%) rotate(180deg) !important;
+  top: 50% !important;
+  right: calc(100% - 25px) !important;
+  transform: translate(-50%, -50%) rotate(180deg) !important;
   padding: 5px !important;
 }
 
@@ -265,7 +316,7 @@ a:active {
   box-shadow: 1px 1px 7px rgba(128, 128, 128, 0.518);
 }
 
-.single-news-card-paragraph-container p{
+.single-news-card-paragraph-container p {
   word-wrap: break-word;
   display: inline-block !important;
   height: fit-content;
@@ -296,6 +347,44 @@ a:active {
   position: absolute;
   left: -10px;
   bottom: -20px;
+}
+
+.about-us-page-text,
+.about-us-page-text strong {
+  font-size: 0.87rem;
+  line-height: 1.5rem;
+}
+
+.about-us-page-text h4 {
+  padding-bottom: 5px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.about-us-page-text h4 strong {
+  font-size: 1.4rem;
+}
+
+.about-us-page-text li {
+  font-size: 0.87rem;
+  padding-left: 20px;
+  padding-bottom: 5px;
+}
+
+.about-us-page-text li::before {
+  content: "\f111";
+  /* font: normal normal normal 14px / 1 FontAwesome; */
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  height: 10px;
+  width: 10px;
+  display: inline-block;
+  background-color: black;
+  border-radius: 50%;
+  transform: translateY(45%);
+  margin-right: 5px;
+  margin-left: -15px;
 }
 
 /*partners page styles*/
@@ -378,6 +467,37 @@ a:active {
   }
 }
 
+@media (min-width: 768px) {
+  .newsComponent-inner-container {
+    display: grid;
+    grid-template: 1fr / 30% 1fr;
+    row-gap: 20px;
+  }
+
+  .newsComponent-carousel-container {
+    margin-left: auto;
+  }
+
+  .newsComponent-article-body {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+  }
+}
+
+@media (min-width: 850px) {
+  .newsComponent-article-body {
+    -webkit-line-clamp: 9;
+  }
+}
+
+@media (min-width: 950px) {
+  .newsComponent-article-body {
+    -webkit-line-clamp: 11;
+  }
+}
+
 @media (min-width: 1024px) {
   /*navbar styles*/
   .navbar-dropdown-button {
@@ -385,7 +505,7 @@ a:active {
   }
 
   /*partners component styles*/
-  .partnersComponent-carousel .slick-prev {
+  /* .partnersComponent-carousel .slick-prev {
     top: -29% !important;
     left: 0 !important;
     transform: translateX(-100%) rotate(180deg) !important;
@@ -396,7 +516,7 @@ a:active {
     right: 100% !important;
     transform: translateX(0%) rotate(180deg) !important;
     padding: 5px !important;
-  }
+  } */
 
   /*about-us page styles*/
   .about-us-page-image-title-inner::before {
@@ -417,6 +537,10 @@ a:active {
   /*newsComponent syles*/
   .newsComponent-inner-container {
     width: var(--desktopWidth);
+  }
+
+  .newsComponent-article-body {
+    -webkit-line-clamp: 15;
   }
 
   /* News page style*/

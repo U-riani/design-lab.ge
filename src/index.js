@@ -6,6 +6,9 @@ import App from "./App";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import "bpg-le-studio-04-caps/css/bpg-le-studio-04-caps.min.css";
+
+
 import "./i18n"; // Import your i18n configuration
 
 import { Provider } from "react-redux";

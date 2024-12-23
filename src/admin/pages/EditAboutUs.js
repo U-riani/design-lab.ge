@@ -92,7 +92,7 @@ const EditAboutUs = () => {
   };
 
   return (
-    <div className="container mx-auto pt-10">
+    <div className="container pt-10  max-w-[90%] lg:max-w-[1000px] mx-auto">
       <h2 className="text-2xl font-bold mb-6">განაახლე ჩვენს შესახებ</h2>
       <div className="mb-6">
         <div className=" overflow-hidden">
@@ -116,7 +116,7 @@ const EditAboutUs = () => {
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
-      <div className="mb-6">
+      <div className="mb-6 w-[100%] ">
         <label className="block text-sm font-medium text-gray-700">
           Content (Georgian)
         </label>
@@ -130,7 +130,7 @@ const EditAboutUs = () => {
           />
         </Suspense>
       </div>
-      <div className="mb-6">
+      <div className="mb-6 w-[100%] ">
         <label className="block text-sm font-medium text-gray-700">
           Content (English)
         </label>

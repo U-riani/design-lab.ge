@@ -64,13 +64,13 @@ const StackCardsSlider4 = ({ newsData }) => {
     }
   }, [last5News.length]);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     moveSlideToNext();
-  //   }, 5000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      moveSlideToNext();
+    }, 5000);
 
-  //   return () => clearTimeout(timer);
-  // }, [last5News, moveSlideToNext]);
+    return () => clearTimeout(timer);
+  }, [last5News, moveSlideToNext]);
 
   useEffect(() => {
     const updateSlidesPosition = () => {

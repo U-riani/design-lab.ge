@@ -1,19 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SpaceComponent from "../components/SpaceComponent";
 import { useGetAboutUsQuery } from "../data/aboutUsSlice";
-
-
+import { useLocalStorage } from "../context/LocalStorageContext";
+import { useTranslation } from "react-i18next";
 
 const AboutUsPage = () => {
-  const {data} = useGetAboutUsQuery();
-  console.log('-+about us+- ', data)
+  const { data } = useGetAboutUsQuery();
+  const { localStorageData, syncLocalStorageData } = useLocalStorage();
+  const { t, i18n } = useTranslation();
+  const [imageSrc, setImageSrc] = useState("");
+
+
+  useEffect(() => {
+    if (data) {
+      syncLocalStorageData("aboutUs", data);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (localStorageData.aboutUs && localStorageData.aboutUs[0]?.image?.length > 0) {
+      setImageSrc(localStorageData.aboutUs[0].image[0]);
+    }
+  }, [localStorageData.aboutUs]);
+
+  const sanitizeHtml = (input) => {
+    if (typeof input !== "string") return input;
+
+    // Remove all inline styles
+    let result = input.replace(/ style="[^"]*"/g, "");
+
+    // Replace <br> with <br/>
+    // result = result.replace(/<br>/g, "<br/> </br>");
+
+    // Remove all tags except allowed ones
+    const allowedTags = ["ul", "ol", "li", "strong", "br", "h4"];
+    result = result.replace(/<\/?([a-zA-Z0-9]+)[^>]*>/g, (match, tag) => {
+      return allowedTags.includes(tag.toLowerCase()) ? match : "";
+    });
+
+    // Preserve \n and \t as plain text
+    result = result.replace(/\n/g, "\\n").replace(/\t/g, "\\t");
+
+    const newResult = `<img src="${imageSrc}" class="aboutUs-page-image mb-3 lg:ms-3 float-right" alt="aboutUs Image"/> ${result}`;
+    return newResult;
+  };
+
+  console.log("-+about us+- ", localStorageData.aboutUs);
   return (
     <div className="about-us-page w-full flex flex-col items-center">
       <div className="space-compoenent-container w-full">
         <SpaceComponent />
       </div>
       <div className="about-us-page-inner-container py-5">
-        <p className="">
+        {/* <p className="">
           <div className="relative image-container w-[90%] lg:w-[70%] aspect-[4/2] mx-auto lg:float-end pb-5 lg:ps-3 lg:pb-3">
             <img className="object-fit" src="images/pic-1.jpg" alt="" />
             <div className="about-us-page-image-title w-[90%] absolute bottom-0 left-0 mb-[50px] ms-[30px] p-1 md:p-2 lg:p-4">
@@ -70,7 +109,15 @@ const AboutUsPage = () => {
             </li>
             <li className="ms-4">საერთო სამუშაო სივრცით სარგებლობა.</li>
           </ul>
-        </p>
+        </p> */}
+        {localStorageData.aboutUs && (
+          <div
+          className="about-us-page-text"
+            dangerouslySetInnerHTML={{
+              __html: sanitizeHtml(localStorageData.aboutUs[0].text[i18n.language]),
+            }}
+          />
+        )}
       </div>
     </div>
   );

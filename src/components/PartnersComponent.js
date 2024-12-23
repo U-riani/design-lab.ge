@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CarouselComponent from "./CarouselComponent";
 import { useTranslation } from "react-i18next";
 import { useGetAllPartnersQuery } from "../data/partnersSlice";
+import { useLocalStorage } from "../context/LocalStorageContext";
 // import { Link } from "react-router-dom";
 
 const PartnersComponent = () => {
-  const { data: partners } = useGetAllPartnersQuery();
+  const { data } = useGetAllPartnersQuery();
   const { t } = useTranslation();
-  console.log("partners:", partners);
+
+  const { localStorageData, syncLocalStorageData } = useLocalStorage();
+
+  useEffect(() => {
+    if (data && data.length > 0) {
+      syncLocalStorageData("allPartners", data);
+    }
+  }, [data]);
+  
   return (
     <div className="partnersComponent-container px-0 py-10 mb-0 bg-black w-full">
       <div className="partnersComponent-inner-container px-0 mb-0 flex justify-center w-full">
@@ -19,7 +28,7 @@ const PartnersComponent = () => {
             <div className="partnersComponent-line mt-auto bg-white w-[80px] h-[4px]"></div>
           </div>
           <div className="partnersComponent-carousel mb-0 pe-0 ps-0 pb-4 lg:pb-0 lg:w-[70%]">
-            <CarouselComponent partners={partners} />
+            <CarouselComponent partners={localStorageData.allPartners} />
           </div>
         </div>
       </div>

@@ -19,7 +19,9 @@ import LoginPage from "./admin/pages/LoginPage";
 import AdminDashboard from "./admin/pages/Dashboard";
 import AdminLayout from "./admin/layout/Layout";
 import AboutUs from "./admin/pages/AboutUs";
+import AddAboutUsMainPage from './admin/pages/AddAboutUsMainPage'
 import EditAboutUs from "./admin/pages/EditAboutUs";
+import EditAboutUsMainPage from './admin/pages/EditAboutUsMainPage'
 import AddHero from "./admin/pages/AddHero";
 import EditHero from "./admin/pages/EditHero";
 import AddPartners from "./admin/pages/AddPartners";
@@ -51,6 +53,14 @@ function App() {
               <Route
                 path='edit-about-us'
                 element={<ProtectedRoute element={<EditAboutUs />} />}
+              />
+              <Route
+                path='add-about-us-main-page'
+                element={<ProtectedRoute element={<AddAboutUsMainPage />} />}
+              />
+              <Route
+                path='edit-about-us-main-page'
+                element={<ProtectedRoute element={<EditAboutUsMainPage />} />}
               />
               <Route
                 path='add-hero'

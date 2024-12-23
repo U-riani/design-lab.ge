@@ -4,19 +4,17 @@ import { Outlet } from "react-router-dom";
 import FooterComponent from "../components/FooterComponent";
 import PartnersComponent from "../components/PartnersComponent";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
+import Hero from "../components/Hero";
 
 const Layout = () => {
   return (
     <>
-      <header className="App-header w-full fixed top-0 left-0 z-50">
+      <header className="App-header w-full fixed top-0 left-0 ">
         <Navbar />
       </header>
       <main className="App w-full overflow-x-hidden relative mt-[72px]">
-        <div className="main-hero h-[calc(100vh-72px)] overflow-hidden">
-          <BeforeAfterSlider
-            beforeImage={"/slide1-b.jpg"}
-            afterImage={"/slide1.jpg"}
-          />
+        <div className="main-hero h-[30vh] md:h-40vh lg:h-[calc(100vh-72px)] overflow-hidden">
+          <Hero />
         </div>
         <Outlet />
         <PartnersComponent />
