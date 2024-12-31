@@ -256,7 +256,12 @@ const ReservationPage = () => {
               </div>
               <div className="visit-date-time-container pb-6 flex flex-col ">
                 <div className="date-container flex flex-col pb-2">
-                  <label htmlFor="date" className="ps-[10px] text-[0.7rem] text-[#666768]">{t("visitDate")}</label>
+                  <label
+                    htmlFor="date"
+                    className="ps-[10px] text-[0.7rem] text-[#666768]"
+                  >
+                    {t("visitDate")}
+                  </label>
                   <DatePicker
                     selected={visitDate}
                     onChange={(date) => setVisitDate(date)}
@@ -268,41 +273,53 @@ const ReservationPage = () => {
                 </div>
                 <div className="time-container flex flex-row gap-[40px] ">
                   <div className="start-time flex flex-col w-1/2 border-b-2 border-black h-fit ps-[10px]">
-                    <label htmlFor="start-time" className="text-[0.7rem] text-[#666768]">{t("startTime")}</label>
+                    <label
+                      htmlFor="start-time"
+                      className="text-[0.7rem] text-[#666768]"
+                    >
+                      {t("startTime")}
+                    </label>
                     <select
                       name="start-time"
                       id="start-time"
                       onChange={(e) => setStartTime(e.target.value)}
                       required
                       value={startTime}
-                      className="w-fit focus:outline-none cursor-pointer"
+                      className="w-fit bg-white focus:outline-none cursor-pointer"
                     >
                       <option>-- : --</option>
-                      {getAvailableTimes().map((time) => (
-                        <option
-                          key={time}
-                          value={time}
-                          disabled={!availableTimes.includes(time)}
-                          className={`${
-                            availableTimes.includes(time)
-                              ? "disabled-option"
-                              : ""
-                          }`}
-                        >
-                          {time}
-                        </option>
-                      ))}
+                      {getAvailableTimes().map((time) =>
+                        time !== "18:30" && time !== "19:00" ? (
+                          <option
+                            key={time}
+                            value={time}
+                            disabled={!availableTimes.includes(time)}
+                            className={`${
+                              availableTimes.includes(time)
+                                ? "disabled-option"
+                                : ""
+                            }`}
+                          >
+                            {time}
+                          </option>
+                        ) : null
+                      )}
                     </select>
                   </div>
                   <div className="end-time-container flex flex-col w-1/2 border-b-2 border-black h-fit ps-[10px]">
-                    <label htmlFor="end-time" className="text-[0.7rem] text-[#666768]">{t("endTime")}</label>
+                    <label
+                      htmlFor="end-time"
+                      className="text-[0.7rem] text-[#666768]"
+                    >
+                      {t("endTime")}
+                    </label>
                     <select
                       name="end-time"
                       id="end-time"
                       onChange={(e) => setEndTime(e.target.value)}
                       required
                       value={endTime}
-                      className="w-fit focus:outline-none cursor-pointer"
+                      className="w-fit bg-white focus:outline-none cursor-pointer"
                     >
                       <option>-- : --</option>
                       {getEndTimes().map((time) => (

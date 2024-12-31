@@ -56,7 +56,7 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="w-full border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-white relative z-50">
+    <nav className="w-full border-gray-200 bg-gray-50 relative z-50">
       <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           to="/"
@@ -70,7 +70,7 @@ const Navbar = () => {
         <button
           onClick={toggleMenu} // Toggle the menu when clicked
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
           aria-controls="navbar-solid-bg"
           aria-expanded={isMenuOpen ? "true" : "false"}
         >
@@ -98,11 +98,11 @@ const Navbar = () => {
           id="navbar-solid-bg"
           onClick={toggleMenu}
         >
-          <ul className="navbar-ul h-[calc(100vh-72px)] w-fit lg:w-fit px-3 lg:px-0 lg:h-fit lg:align-middle flex flex-col font-medium bg-gray-50 lg:space-x-2 xl:space-x-4 2xl:space-x-6 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent dark:bg-gray-800 lg:dark:bg-transparent dark:border-gray-700">
+          <ul className="navbar-ul h-[calc(100vh-72px)] w-fit lg:w-fit px-3 lg:px-0 lg:h-fit lg:align-middle flex flex-col font-medium bg-gray-50 lg:space-x-2 xl:space-x-4 2xl:space-x-6 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
             <li>
               <Link
                 to="/"
-                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 "
                 aria-current="page"
                 onClick={toggleMenu}
               >
@@ -113,7 +113,7 @@ const Navbar = () => {
               <Link
                 onClick={toggleMenu}
                 to="/aboutUs"
-                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700  "
               >
                 {t("aboutUs")}
               </Link>
@@ -122,7 +122,7 @@ const Navbar = () => {
               <Link
                 onClick={toggleMenu}
                 to="/news"
-                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 "
               >
                 {t("news")}
               </Link>
@@ -131,7 +131,7 @@ const Navbar = () => {
               <Link
                 onClick={toggleMenu}
                 to="/partners"
-                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 "
               >
                 {t("partners")}
               </Link>
@@ -140,7 +140,7 @@ const Navbar = () => {
               <Link
                 onClick={toggleMenu}
                 to="/designers"
-                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 "
               >
                 {t("designers")}
               </Link>
@@ -149,7 +149,7 @@ const Navbar = () => {
               <Link
                 onClick={toggleMenu}
                 to="/registration"
-                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 "
               >
                 {t("registration")}
               </Link>
@@ -158,7 +158,7 @@ const Navbar = () => {
               <Link
                 onClick={toggleMenu}
                 to="/reservation"
-                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 "
               >
                 {t("reservation")}
               </Link>
@@ -167,7 +167,7 @@ const Navbar = () => {
               <Link
                 onClick={toggleMenu}
                 to="/contact"
-                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 "
               >
                 {t("contact")}
               </Link>

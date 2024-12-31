@@ -516,7 +516,7 @@ a:active {
   outline: none;
 }
 
-.message-form{
+.message-form {
   min-height: 55px;
   height: auto;
 }
@@ -540,8 +540,12 @@ a:active {
 }
 
 .message-form textarea:focus,
-.message-form textarea:not(:placeholder-shown){
+.message-form textarea:not(:placeholder-shown) {
   height: 50px;
+}
+
+.react-datepicker-popper {
+  z-index: 3 !important; /* You can change this value as needed */
 }
 
 /*footer styles*/
