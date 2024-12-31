@@ -49,7 +49,7 @@ const AboutUsPage = () => {
   return (
     <div className="about-us-page w-full flex flex-col items-center">
       <div className="space-compoenent-container w-full">
-        <SpaceComponent />
+        <SpaceComponent data={{ data: t("aboutUs") }}/>
       </div>
       <div className="about-us-page-inner-container py-5">
         {/* <p className="">
@@ -112,7 +112,8 @@ const AboutUsPage = () => {
         </p> */}
         {localStorageData.aboutUs && (
           <div
-          className="about-us-page-text"
+          lang={`${i18n.language === 'ge' ? 'ka' : 'en'}`}
+          className="about-us-page-text hyphens-auto"
             dangerouslySetInnerHTML={{
               __html: sanitizeHtml(localStorageData.aboutUs[0].text[i18n.language]),
             }}

@@ -65,7 +65,7 @@ const BeforeAfterSlider = (props) => {
             style={{ height: "100%" }}
           />
           <h1
-            className="hero-text text-center text-7xl text-black absolute px-2 pb-[4px] "
+            className="w-[605] hero-text text-center text-2xl lg:text-7xl text-black absolute px-2 pb-[4px] "
             style={{
               top: "50%",
               left: `${50 + mouseMoveX * 0.005}%`,
@@ -76,7 +76,7 @@ const BeforeAfterSlider = (props) => {
             {props.data.text[i18n.language]}
           </h1>
           <h1
-            className="hero-text hero-text-2 text-center text-7xl text-white absolute px-2 pb-[4px]"
+            className="w-[605] hero-text hero-text-2 text-center text-2xl lg:text-7xl text-white absolute px-2 pb-[4px]"
             style={{
               top: "50%",
               left: `${50 + mouseMoveX * 0.005}%`,

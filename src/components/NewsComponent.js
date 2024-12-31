@@ -25,7 +25,7 @@ const NewsComponent = () => {
   return (
     <div className="news-component mb-0 px-0">
       <div className="space-compoenent-container w-full">
-        <SpaceComponent />
+        <SpaceComponent data={{ data: t("news") }}/>
       </div>
       <div className="newsComponent-inner-container px-0 mt-3 md:mt-5">
         <div className="newsComponent-left-col pe-0 ps-0 mb-0 md:h-full ">
@@ -41,7 +41,7 @@ const NewsComponent = () => {
                   }`}
                 >
                   <h4
-                    className="text-[12px] md:text-[16px] lg:text-[20px] font-semibold"
+                    className="text-2xl font-semibold md:mb-1"
                     lang={i18n.language === "en" ? "en" : "ka"}
                   >
                     {el.title[i18n.language]}
@@ -50,7 +50,7 @@ const NewsComponent = () => {
                   {screenWidth > 768 && (
                     <div className="h-full">
                       <p
-                        className={`article-body newsComponent-article-body md:h-full lg:pt-2 text-[10px] md:text-[12px] lg:text-[14px]`}
+                        className={`article-body newsComponent-article-body md:h-full lg:pt-2 text-xs leading-5`}
                         lang={i18n.language === "en" ? "en" : "ka"}
                       >
                         {extractTextRegex(el.text[i18n.language])}

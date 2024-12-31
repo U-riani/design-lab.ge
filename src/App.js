@@ -32,6 +32,8 @@ import SingleNews from "./admin/pages/SingleNews";
 import AdminAddDesigner from "./admin/pages/AddDesigners";
 import EditDesigners from "./admin/pages/EditDesigners";
 import AllReservations from "./admin/pages/AllReservations";
+import Registration from "./pages/Registration";
+import ScrollToTop from "./hooks/ScrollToTop";
 
 
 function App() {
@@ -39,6 +41,7 @@ function App() {
     <AuthProvider>
       <LocalStorageProvider>
         <Router>
+          <ScrollToTop />
           <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/admin/" element={<AdminLayout />}>
@@ -121,6 +124,7 @@ function App() {
               <Route path="news/:newsId" element={<SingleNewsPage />} />
               <Route path="partners" element={<PartnersPage />} />
               <Route path="designers" element={<DesignersPage />} />
+              <Route path="registration" element={<Registration />} />
               <Route path="contact" element={<ContactPage />} />
               <Route path="reservation" element={<ReservationPage />} />
             </Route>

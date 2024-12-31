@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const heroApiSlice = createApi({
   reducerPath: "heroApi",
   baseQuery: fetchBaseQuery({
-    baseUrl:  "http://localhost:5000/api/",
+    baseUrl:  "https://design-lab-ten.vercel.app/api/",
     prepareHeaders: (headers) => {
       headers.set("Accept", "application/json");
       return headers;

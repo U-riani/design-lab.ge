@@ -1,5 +1,45 @@
 {
-    "more": "MORE",
-    "contact": "CONTACT",
-    "designers": "DESIGNERS"
+  "designLab": "DESIGN LAB",
+  "main": "MAIN",
+  "reservation": "RESERVATION",
+
+  "more": "MORE",
+  "contact": "CONTACT",
+  "designers": "DESIGNERS",
+
+  "aboutUs": "ABOUT US",
+  "news": "NEWS",
+  "partners": "PARTNERS",
+
+  "bookVisit": "Book Visit",
+  "bookSpace": "Book Space",
+  "email": "Email",
+
+
+  "registration": "REGISTRATION",
+  "followUs": "Follow Us",
+  "tbilisiGeorgia": "Tbilisi, Georgia",
+  "AnaPolitkovskaia": "Ana Politkovskaia St 3/28",
+  "fullName": "Full Name",
+  "person": "Person",
+  "company": "Company",
+  "phoneNumber": "Phone Number",
+  "uploadProfilePhoto": "Upload Profile Photo",
+  "uploadProjectsPhoto": "Upload Project's Photo",
+  "errorPhotoSize": "max size 10MB",
+  "uploadedProfilePhoto": "Profile Photo Uploaded",
+  "uploadedProjectsPhoto": "Profile Photo Uploaded",
+  "behanceLink": "Behance Link",
+  "instagramLink": "Instagram Link",
+  "facebookLink": "Facebook Link",
+  "submit": "SUBMIT",
+  "fillAllFields": "fill First Four Fields",
+  "visitWebsite": "Visit Website",
+  "enterName": "Enter Name",
+  "enterEmail": "Enter Email",
+  "enterPhoneNumber": "Enter Phone Number",
+  "visitDate": "Visit Date",
+  "startTime": "Start Time",
+  "endTime": "End Time",
+  "sendMessage": "Send Message"
 }

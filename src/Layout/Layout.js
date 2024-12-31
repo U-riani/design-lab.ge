@@ -5,6 +5,7 @@ import FooterComponent from "../components/FooterComponent";
 import PartnersComponent from "../components/PartnersComponent";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import Hero from "../components/Hero";
+import ScrollUp from "../components/ScrollUp";
 
 const Layout = () => {
   return (
@@ -17,6 +18,7 @@ const Layout = () => {
           <Hero />
         </div>
         <Outlet />
+        <ScrollUp />
         <PartnersComponent />
       </main>
       <footer>

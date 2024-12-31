@@ -20,7 +20,7 @@ const NewsPage = () => {
   const extractTextRegex = (html) => {
     const textOnly = html.replace(/<[^>]*>/g, " ");
     return he.decode(textOnly);
-  };
+  }; 
 
   if (!localStorageData.allNews && isLoading) {
     return (
@@ -31,28 +31,28 @@ const NewsPage = () => {
     );
   }
 
-  if (error) {
-    return (
-      <div className="getNewsComponent">
-        <div variant="danger">Error fetching news: {error.message}</div>
-      </div>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <div className="getNewsComponent">
+  //       <div variant="danger">Error fetching news: {error.message}</div>
+  //     </div>
+  //   );
+  // }
   return (
     <div className="news-page-container w-full flex flex-col items-center">
       <div className="space-component-container w-full">
-        <SpaceComponent />
+        <SpaceComponent data={{ data: t("news") }}/>
       </div>
-      <div className="news-page-inner-container">
+      <div className="news-page-inner-container pt-10 px-5">
         {localStorageData.allNews &&
           localStorageData.allNews.map((el, i) => (
-            <div className="news-card bg-white flex p-5 mb-5" key={i}>
+            <div className="news-card bg-white flex p-5 mb-10" key={i}>
               <div className="news-card-left w-1/2 aspect-[5/3] flex flex-col pr-3">
                 <div className="news-page-text-container h-full overflow-hidden flex flex-col">
-                  <h5 className="font-semibold pb-3">
+                  <h5 className="font-semibold pb-3 text-sm md:text-lg lg:text-2xl">
                     {el.title[i18n.language]}
                   </h5>
-                  <p className="hidden md:block text-sm text-gray-600">
+                  <p className="hidden md:block text-xs leading-5 text-gray-600">
                     {extractTextRegex(
                       el.text[i18n.language] || "news not found"
                     )}

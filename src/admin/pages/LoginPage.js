@@ -16,7 +16,7 @@ const LoginPage = () => {
 
     try {
       const response = await axios.post(
-        "https://design-union-backend.vercel.app/admin/login",
+        "https://design-lab-ten.vercel.app/admin/login",
         {
           username,
           password,

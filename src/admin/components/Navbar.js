@@ -4,12 +4,8 @@ import useScreenWidth from "../../hooks/useScreenWidth";
 
 const Navbar = () => {
   const screenWidth = useScreenWidth();
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null); // Track which dropdown is active
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
 
   // Toggle the menu open and closed
   const toggleMenu = () => {
@@ -18,15 +14,20 @@ const Navbar = () => {
     }
   };
 
+  // Handle dropdown toggle
+  const handleDropdownToggle = (dropdownName) => {
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
+
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+    <nav className="admin-navbar bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <button
           data-collapse-toggle="navbar-dropdown"
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-dropdown"
-          aria-expanded="false"
+          aria-expanded={isMenuOpen}
           onClick={toggleMenu}
         >
           <span className="sr-only">Open main menu</span>
@@ -46,14 +47,19 @@ const Navbar = () => {
             />
           </svg>
         </button>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+        <div
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } w-full lg:block lg:w-auto`}
+          id="navbar-dropdown"
+        >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <button
-                onClick={toggleDropdown}
+                onClick={() => handleDropdownToggle("aboutUs")}
                 id="dropdownNavbarLink"
                 data-dropdown-toggle="dropdownNavbar"
-                className="navbar-dropdown-button flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                className="navbar-dropdown-button flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
               >
                 about us{" "}
                 <svg
@@ -74,22 +80,24 @@ const Navbar = () => {
               </button>
               <div
                 id="dropdownNavbar"
-                className={`z-10 transition-all duration-400 ${
-                  showDropdown ? "opacity-100" : "opacity-0 pointer-events-none	"
-                } font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 w-fit lg:absolute lg:mt-2`}
+                className={`${
+                  activeDropdown === "aboutUs"
+                    ? "opacity-100"
+                    : "opacity-0 pointer-events-none"
+                } transition-all duration-400 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}
               >
                 <ul
                   className="py-2 text-sm text-gray-700 dark:text-gray-400"
                   aria-labelledby="dropdownLargeButton"
                 >
-                  <li>
+                  {/* <li>
                     <Link
                       to="about-us"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
-                      About us
+                      Add About us
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link
                       to="edit-about-us"
@@ -119,7 +127,7 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                onClick={toggleDropdown}
+                onClick={() => handleDropdownToggle("hero")}
                 id="dropdownNavbarLink"
                 data-dropdown-toggle="dropdownNavbar"
                 className="navbar-dropdown-button flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
@@ -143,9 +151,11 @@ const Navbar = () => {
               </button>
               <div
                 id="dropdownNavbar"
-                className={`z-10 transition-all duration-400 ${
-                  showDropdown ? "opacity-100" : "opacity-0 pointer-events-none	"
-                } font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 w-fit lg:absolute lg:mt-2`}
+                className={`${
+                  activeDropdown === "hero"
+                    ? "opacity-100"
+                    : "opacity-0 pointer-events-none"
+                } transition-all duration-400 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}
               >
                 <ul
                   className="py-2 text-sm text-gray-700 dark:text-gray-400"
@@ -172,7 +182,7 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                onClick={toggleDropdown}
+                onClick={() => handleDropdownToggle("partners")}
                 id="dropdownNavbarLink"
                 data-dropdown-toggle="dropdownNavbar"
                 className="navbar-dropdown-button flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
@@ -196,9 +206,11 @@ const Navbar = () => {
               </button>
               <div
                 id="dropdownNavbar"
-                className={`z-10 transition-all duration-400 ${
-                  showDropdown ? "opacity-100" : "opacity-0 pointer-events-none	"
-                } font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 w-fit lg:absolute lg:mt-2`}
+                className={`${
+                  activeDropdown === "partners"
+                    ? "opacity-100"
+                    : "opacity-0 pointer-events-none"
+                } transition-all duration-400 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}
               >
                 <ul
                   className="py-2 text-sm text-gray-700 dark:text-gray-400"
@@ -225,7 +237,7 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                onClick={toggleDropdown}
+                onClick={() => handleDropdownToggle("news")}
                 id="dropdownNavbarLink"
                 data-dropdown-toggle="dropdownNavbar"
                 className="navbar-dropdown-button flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
@@ -250,7 +262,7 @@ const Navbar = () => {
               <div
                 id="dropdownNavbar"
                 className={`z-10 transition-all duration-400 ${
-                  showDropdown ? "opacity-100" : "opacity-0 pointer-events-none	"
+                  activeDropdown === 'news' ? "opacity-100" : "opacity-0 pointer-events-none	"
                 } font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 w-fit lg:absolute lg:mt-2`}
               >
                 <ul
@@ -278,7 +290,7 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                onClick={toggleDropdown}
+                onClick={() => handleDropdownToggle("designers")}
                 id="dropdownNavbarLink"
                 data-dropdown-toggle="dropdownNavbar"
                 className="navbar-dropdown-button flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
@@ -303,7 +315,7 @@ const Navbar = () => {
               <div
                 id="dropdownNavbar"
                 className={`z-10 transition-all duration-400 ${
-                  showDropdown ? "opacity-100" : "opacity-0 pointer-events-none	"
+                  activeDropdown === 'designers' ? "opacity-100" : "opacity-0 pointer-events-none	"
                 } font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 w-fit lg:absolute lg:mt-2`}
               >
                 <ul

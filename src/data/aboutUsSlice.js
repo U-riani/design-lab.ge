@@ -5,7 +5,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiAboutUsSlice = createApi({
   reducerPath: "aboutUsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/",
+    baseUrl: "https://design-lab-ten.vercel.app/api/",
     prepareHeaders: (headers) => {
       // You can add headers here if needed
       headers.set("Accept", "application/json");

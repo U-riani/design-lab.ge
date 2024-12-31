@@ -1,7 +1,50 @@
 {
-    "more": "ვრცლად",
-    "partners": "პარტნიორები",
-    "contact": "კონტაქტი",
-    "designers": "დიზაინერები"
+  "designLab": "დიზაინ ლაბი",
+
+  "main": "მთავარი",
+  "reservation": "რეზერვაცია",
+
+  "more": "ვრცლად",
+  "contact": "კონტაქტი",
+  "designers": "დიზაინერები",
+
+  "aboutUs": "ჩვენს შესახებ",
+  "news": "სიახლეები",
+  "partners": "პარტნიორები",
+
+  "bookVisit": "დაჯავშნე ვიზიტი",
+  "bookSpace": "სივრცის რეზერვაცია",
+  "email": "მეილი",
+
+  "registration": "რეგისტრაცია",
+
+  "tbilisiGeorgia": "თბილისი, საქართველო",
+  "AnaPolitkovskaia": "ანა პოლიტკოვსკაიას ქუჩა 3/28",
+  "followUs": "გამოგვყევით",
+
+  "fullName": "სახელი/გვარი",
+  "person": "ფიზ. პირი",
+  "company": "კომპანია",
+  "phoneNumber": "ტელეფონის ნომერი",
+  "uploadProfilePhoto": "ატვირთე პროფილის ფოტო",
+  "uploadProjectsPhoto": "ატვირთე პროექტის ფოტო",
+  "errorPhotoSize": "მაქს. ზომა 10მბ",
+  "uploadedProfilePhoto": "პროფილის ფოტო აიტვირთა",
+  "uploadedProjectsPhoto": "პროექტის ფოტო აიტვირთა",
+  "behanceLink": "Behance Link",
+  "instagramLink": "Instagram Link",
+  "facebookLink": "Facebook Link",
+  "submit": "გაგზავნა",
+  "fillAllFields": "შეავსეთ პირველი 4 ველი",
+  "visitWebsite": "გადადი საიტზე",
+  "enterName": "სახელი",
+  "enterEmail": "მეილი",
+  "enterPhoneNumber": "ტელეფონის ნომერი",
+  "visitDate": "ვიზიტის დღე",
+  "startTime": "დაწყ. დრო",
+  "endTime": "დასრ. დრო",
+  "sendMessage": "მოგვწერეთ"
+
+
 
 }

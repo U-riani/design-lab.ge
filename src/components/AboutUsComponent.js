@@ -20,14 +20,14 @@ const AboutUsComponent = () => {
   return (
     <div className="about-us-component  flex flex-col items-center">
       <div className="space-compoenent-container w-full">
-        <SpaceComponent />
+        <SpaceComponent data={{ data: t("aboutUs") }}/>
       </div>
       <div className="about-us-inner-container w-full lg:grid lg:grid-rows-1  lg:grid-cols-2 lg:grid-flow-col h-fit gap-0">
-        <div className="about-us-row about-us-row-1 w-full h-fit py-5 flex flex-col justify-start h-full lg:pb-0">
+        <div className="about-us-row about-us-row-1 w-full h-fit py-5 flex flex-col justify-start h-full lg:pb-0 lg:pe-2">
           {/* <h2 className="about-us-title">About Us</h2> */}
-          <h4 className="text-2xl font-semibold h-fit">DESIGN LAB</h4>
+          <h4 className="text-2xl font-semibold h-fit">{t('designLab')}</h4>
           {localStorageData.aboutUsMainPage && (
-            <p className="py-3">
+            <p className="py-3 hyphens-auto text-xs leading-6" lang={`${i18n.language === 'ge' ? 'ka' : 'en'}`}>
               {localStorageData.aboutUsMainPage[0].text[i18n.language]}
             </p>
           )}
@@ -37,10 +37,10 @@ const AboutUsComponent = () => {
               <em className="absolute w-[10px] bg-white h-[1px] top-2/4 right-10 transition-all duration-300 group-hover:w-[60px]"></em>
               <div className="h-2/4 w-full bg-white/[0.2] absolute tranisition-all duration-300 top-0 left-[-100%] group-hover:left-0"></div>
               <div className="h-2/4 w-full bg-white/[0.2] absolute tranisition-all duration-300 bottom-0 right-[-100%] group-hover:right-0"></div>
-            </Link>
+            </Link> 
           </button>
         </div>
-        <div className="about-us-row about-us-row-2 w-full lg:pt-5">
+        <div className="about-us-row about-us-row-2 w-full lg:pt-5 lg:ps-2">
           {localStorageData.aboutUsMainPage && (
             <div className="relative about-us-row-2-inner-container relative w-full aspect-[5/3]">
               <img

@@ -28,9 +28,23 @@ const Navbar = () => {
     }
   };
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
+  // const toggleDropdown = () => {
+  //   setShowDropdown(!showDropdown);
+  // };
+
+  // Close the menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest(".App-header")) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -42,7 +56,7 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="w-full border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 relative z-50">
+    <nav className="w-full border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-white relative z-50">
       <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           to="/"
@@ -82,70 +96,80 @@ const Navbar = () => {
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           } z-10 min-w-[120px] lg:block  absolute lg:relative lg:h-fit right-0 top-[72px] lg:top-0  transition-transform duration-300 ease-in-out lg:translate-x-0`}
           id="navbar-solid-bg"
+          onClick={toggleMenu}
         >
-          <ul className="h-[calc(100vh-72px)] w-[142px] lg:w-fit px-3 lg:px-0 lg:h-fit lg:align-middle flex flex-col font-medium bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent dark:bg-gray-800 lg:dark:bg-transparent dark:border-gray-700">
+          <ul className="navbar-ul h-[calc(100vh-72px)] w-fit lg:w-fit px-3 lg:px-0 lg:h-fit lg:align-middle flex flex-col font-medium bg-gray-50 lg:space-x-2 xl:space-x-4 2xl:space-x-6 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent dark:bg-gray-800 lg:dark:bg-transparent dark:border-gray-700">
             <li>
               <Link
                 to="/"
-                className="block py-2 px-3  lg:p-0 text-gray-900  lg:bg-transparent lg:text-blue-700 lg:dark:text-blue-500 dark:bg-blue-600 lg:dark:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
                 aria-current="page"
                 onClick={toggleMenu}
               >
-                MAIN
+                {t("main")}
               </Link>
             </li>
             <li>
               <Link
                 onClick={toggleMenu}
                 to="/aboutUs"
-                className="block py-2 px-3 lg:p-0 text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
               >
-                ABOUT US
+                {t("aboutUs")}
               </Link>
             </li>
             <li>
               <Link
                 onClick={toggleMenu}
                 to="/news"
-                className="block py-2 px-3 lg:p-0 text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                NEWS
+                {t("news")}
               </Link>
             </li>
             <li>
               <Link
                 onClick={toggleMenu}
                 to="/partners"
-                className="block py-2 px-3 lg:p-0 text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
               >
-                PARTNERS
+                {t("partners")}
               </Link>
             </li>
             <li>
               <Link
                 onClick={toggleMenu}
                 to="/designers"
-                className="block py-2 px-3 lg:p-0 text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
               >
-                DESIGNERS
+                {t("designers")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={toggleMenu}
+                to="/registration"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+              >
+                {t("registration")}
               </Link>
             </li>
             <li>
               <Link
                 onClick={toggleMenu}
                 to="/reservation"
-                className="block py-2 px-3 lg:p-0 text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
               >
-                RESERVATION
+                {t("reservation")}
               </Link>
             </li>
             <li>
               <Link
                 onClick={toggleMenu}
                 to="/contact"
-                className="block py-2 px-3 lg:p-0 text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                className="block py-2 px-3 lg:p-0 font-semibold text-gray-900  hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
               >
-                CONTACT
+                {t("contact")}
               </Link>
             </li>
             {/* <li>
@@ -206,7 +230,7 @@ const Navbar = () => {
               onClick={() => handleLangChange()}
             >
               <img
-                className="w-[30px] h-[30px]"
+                className="w-[30px] h-[30px] cursor-pointer"
                 src={`${
                   toggleLang === "ge"
                     ? "/images/lang-icons/georgia.png"

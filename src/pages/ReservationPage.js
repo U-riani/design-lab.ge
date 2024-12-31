@@ -19,7 +19,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 const ReservationPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -203,76 +203,79 @@ const ReservationPage = () => {
   return (
     <div className="reservation-page w-full flex flex-col items-center">
       <div className="space-component-container w-full">
-        <SpaceComponent />
+        <SpaceComponent data={{ data: t("bookSpace") }} />
       </div>
       <div className="reservation-page-inner-container pt-5 pb-10">
         <div className="reservation-row-1 w-full">
           <div className="form w-ful">
             <form
               onSubmit={handleSubmit}
-              className="max-w-3xl mx-auto bg-white flex flex-col border-black border-4 px-3 py-2"
+              className="reservation-form max-w-3xl mx-auto bg-white flex flex-col border-black border-4 px-3 py-2"
             >
-              <div className="name-container flex flex-col pb-6">
-                <label htmlFor="name">Enter name</label>
+              <div className="w-full pt-3">
+                <h4 className="text-[20px] text-center">{t("bookVisit")}</h4>
+              </div>
+              <div className="name-container flex flex-col pb-6 form-control">
                 <input
                   name="name"
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder=""
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
                   autoComplete="name"
                   className="border-b-2 border-black focus:outline-none"
-                />
+                />{" "}
+                <label htmlFor="name">{t("enterName")}</label>
               </div>
-              <div className="email-container flex flex-col pb-6">
-                <label htmlFor="email">Enter email</label>
+              <div className="form-control email-container flex flex-col pb-6">
                 <input
                   name="email"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder=""
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   autoComplete="email"
                   className="border-b-2 border-black focus:outline-none"
                 />
+                <label htmlFor="email">{t("enterEmail")}</label>
               </div>
-              <div className="number-container flex flex-col pb-6">
-                <label htmlFor="number">Enter phone number</label>
+              <div className="form-control number-container flex flex-col pb-6 mb-2">
                 <input
                   type="tel"
                   name="number"
                   id="number"
-                  placeholder="Enter your phone number"
+                  placeholder=""
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   required
                   className="border-b-2 border-black focus:outline-none"
-                />
+                />{" "}
+                <label htmlFor="number">{t("enterPhoneNumber")}</label>
               </div>
               <div className="visit-date-time-container pb-6 flex flex-col ">
-                <div className="date-container flex flex-col pb-6">
-                  <label htmlFor="date">Visit Date</label>
+                <div className="date-container flex flex-col pb-2">
+                  <label htmlFor="date" className="ps-[10px] text-[0.7rem] text-[#666768]">{t("visitDate")}</label>
                   <DatePicker
                     selected={visitDate}
                     onChange={(date) => setVisitDate(date)}
                     dateFormat="yyyy-MM-dd"
                     placeholderText="Select a date"
                     minDate={new Date()}
-                    className="border-b-2 border-black focus:outline-none w-full"
+                    className="ps-[10px] border-b-2 border-black focus:outline-none w-full cursor-pointer"
                   />
                 </div>
                 <div className="time-container flex flex-row gap-[40px] ">
-                  <div className="start-time flex flex-col w-1/2 border-b-2 border-black h-fit">
-                    <label htmlFor="start-time">Start time</label>
+                  <div className="start-time flex flex-col w-1/2 border-b-2 border-black h-fit ps-[10px]">
+                    <label htmlFor="start-time" className="text-[0.7rem] text-[#666768]">{t("startTime")}</label>
                     <select
                       name="start-time"
                       id="start-time"
                       onChange={(e) => setStartTime(e.target.value)}
                       required
                       value={startTime}
-                      className="w-fit focus:outline-none"
+                      className="w-fit focus:outline-none cursor-pointer"
                     >
                       <option>-- : --</option>
                       {getAvailableTimes().map((time) => (
@@ -291,15 +294,15 @@ const ReservationPage = () => {
                       ))}
                     </select>
                   </div>
-                  <div className="end-time-container flex flex-col w-1/2 border-b-2 border-black h-fit">
-                    <label htmlFor="end-time">End time</label>
+                  <div className="end-time-container flex flex-col w-1/2 border-b-2 border-black h-fit ps-[10px]">
+                    <label htmlFor="end-time" className="text-[0.7rem] text-[#666768]">{t("endTime")}</label>
                     <select
                       name="end-time"
                       id="end-time"
                       onChange={(e) => setEndTime(e.target.value)}
                       required
                       value={endTime}
-                      className="w-fit focus:outline-none"
+                      className="w-fit focus:outline-none cursor-pointer"
                     >
                       <option>-- : --</option>
                       {getEndTimes().map((time) => (
@@ -311,21 +314,21 @@ const ReservationPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="message flex flex-col pb-6">
-                <label htmlFor="message">Send message</label>
+              <div className="form-control message message-form flex flex-col pb-6">
                 <textarea
                   name="message"
                   id="message"
-                  rows={2}
-                  placeholder="Enter a message (optional)"
+                  rows={1}
+                  placeholder=""
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="border-b-2 border-black focus:outline-none"
                 ></textarea>
+                <label htmlFor="message">{t("sendMessage")}</label>
               </div>
-              <div className="button-container flex justify-center">
-                <button className="button pb-2 pt-1.5 px-5  bg-black rounded text-white px-2 ">
-                  Submit
+              <div className="button-container flex justify-center mb-2">
+                <button className="button pb-1.5 pt-2 px-5  bg-black rounded text-white px-2 ">
+                  {t("submit")}
                 </button>
               </div>
             </form>
