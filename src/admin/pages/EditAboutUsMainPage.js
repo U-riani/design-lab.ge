@@ -78,7 +78,7 @@ const EditAboutUsMainPage = () => {
     <div className="w-full">
       <h2 className="pb-3">განაახლე ჩვენს შესახებ მთავარ გვერდზე</h2>
       <div className="w-full h-[200px] flex ">
-        <div className="w-1/2 h-full">
+        <div className="w-1/2 h-full pe-2">
           <img
             className="object-cover w-full h-full"
             src={oldImageSrc}
@@ -87,13 +87,13 @@ const EditAboutUsMainPage = () => {
         </div>
         <div className="w-1/2 full">
           <img
-            className="object-cover w-full h-full"
+            className="ps-2 object-cover w-full h-full"
             src={oldImageSrc2}
             alt=""
           />
         </div>
       </div>
-      <div className="w-full flex">
+      <div className="w-full flex flex-col md:flex-row">
         <div className="my-3">
           <label htmlFor="image">Upload Image 1</label>
           <input
@@ -117,7 +117,7 @@ const EditAboutUsMainPage = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col mb-3">
+      <div className="flex flex-col mb-3 mx-auto">
         <label>Content (Georgian)</label>
         {/* Suspense is used to wrap the lazy-loaded component */}
         <textarea

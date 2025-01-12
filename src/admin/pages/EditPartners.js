@@ -91,7 +91,7 @@ const EditPartners = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="w-full flex justify-center">
                   <img
-                    className="max-w-full h-auto rounded-lg"
+                    className="w-[150px] h-[150px] lg:w-[300px] lg:h-[300px] rounded-lg"
                     src={item.image[0]}
                     alt="Partner"
                   />

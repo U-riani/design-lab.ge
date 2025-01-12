@@ -6,7 +6,7 @@ const AdminLayout = () => {
   return (
     <>
       <AdminNavbar />
-      <div className="Admin w-full px-0 mb-0">
+      <div className="Admin w-full px-0 mb-0 max-w-[90%] xl:max-w-[1200px] max-w- mx-auto">
         <Outlet />
       </div>
     </>

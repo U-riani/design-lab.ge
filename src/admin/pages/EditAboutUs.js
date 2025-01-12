@@ -92,7 +92,7 @@ const EditAboutUs = () => {
   };
 
   return (
-    <div className="container pt-10  max-w-[90%] lg:max-w-[1000px] mx-auto">
+    <div className="container pt-10 ">
       <h2 className="text-2xl font-bold mb-6">განაახლე ჩვენს შესახებ</h2>
       <div className="mb-6">
         <div className=" overflow-hidden">
@@ -149,11 +149,11 @@ const EditAboutUs = () => {
         <button
           disabled={startLoading}
           onClick={handleSubmit}
-          className={`px-6 py-2 bg-blue-500 text-white rounded-md shadow-sm ${
+          className={`mb-5 mr-auto px-6 py-2 bg-green-500 text-white rounded-md shadow-sm ${
             startLoading ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-600"
           }`}
         >
-          Add
+          Save
         </button>
       </div>
     </div>

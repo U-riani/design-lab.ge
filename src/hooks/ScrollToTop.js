@@ -4,11 +4,11 @@ import useScreenWidth from "./useScreenWidth";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
-  const screenWidth = useScreenWidth()
+  const screenWidth = useScreenWidth();
   console.log(pathname);
 
   useEffect(() => {
-    if (pathname === "/" ) {
+    if (pathname === "/") {
       window.scrollTo({
         top: window.innerHeight * 0,
         behavior: "smooth",
@@ -21,7 +21,8 @@ const ScrollToTop = () => {
       const element = document.getElementById("space-component");
       if (element) {
         const elementPosition = element.getBoundingClientRect().top; // Element's position relative to the viewport
-        const offsetPosition = window.scrollY + elementPosition - 71 ; // Adjust by subtracting navbar height (74px)
+        const offsetPosition =
+          window.scrollY + elementPosition - (screenWidth > 1024 ? 66 : 71); // Adjust by subtracting navbar height (74px)
 
         window.scrollTo({
           top: offsetPosition,

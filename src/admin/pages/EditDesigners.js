@@ -140,14 +140,14 @@ const EditDesigners = () => {
               <div className="relative h-[200px]">
                 <div className="w-full h-[80%] bg-gray-200  overflow-hidden">
                   <img
-                    src={item.images[1]}
+                    src={item.images[1] || '/images/notAvaliableImage.jpg'}
                     alt="Project"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="absolute aspect-[1/1] h-[40%] bottom-0 left-1/2 translate-x-[-50%]">
                   <img
-                    src={item.images[0]}
+                    src={item.images[0] || '/images/notAvaliableImage.jpg'}
                     alt="Profile"
                     className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
                   />
@@ -307,7 +307,7 @@ const EditDesigners = () => {
                     <button
                       type="submit"
                       disabled={isUpdating}
-                      className="px-4 py-2 bg-blue-500 text-white rounded-md"
+                      className="px-4 py-2 bg-green-500 hover:bg-green-700 text-white rounded-md"
                     >
                       {isUpdating ? "Saving..." : "Save Update"}
                     </button>

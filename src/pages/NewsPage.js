@@ -49,7 +49,7 @@ const NewsPage = () => {
             <div className="news-card bg-white flex p-5 mb-10" key={i}>
               <div className="news-card-left w-1/2 aspect-[5/3] flex flex-col pr-3">
                 <div className="news-page-text-container h-full overflow-hidden flex flex-col">
-                  <h5 className="font-semibold pb-3 text-sm md:text-lg lg:text-2xl">
+                  <h5 className="font-semibold pb-3 text-[10px] md:text-sm lg:text-2xl">
                     {el.title[i18n.language]}
                   </h5>
                   <p className="hidden md:block text-xs leading-5 text-gray-600">

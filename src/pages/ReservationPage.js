@@ -30,6 +30,7 @@ const ReservationPage = () => {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [selectedTime, setSelectedTime] = useState(0);
+  const [isLoading, setIsLoading] = useState(false)
 
   console.log(visitDate);
 
@@ -113,6 +114,7 @@ const ReservationPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true)
     try {
       const visitDateTime = new Date(visitDate);
       const [hours, minutes] = startTime.split(":").map(Number);
@@ -129,10 +131,12 @@ const ReservationPage = () => {
 
       if (data && data.message) {
         alert(data.message);
+        setIsLoading(false)
       }
     } catch (error) {
       console.error("Error recording visit:", error);
-      alert("Please select time");
+      alert(error);
+      setIsLoading(false)
     }
   };
 
@@ -344,8 +348,8 @@ const ReservationPage = () => {
                 <label htmlFor="message">{t("sendMessage")}</label>
               </div>
               <div className="button-container flex justify-center mb-2">
-                <button className="button pb-1.5 pt-2 px-5  bg-black rounded text-white px-2 ">
-                  {t("submit")}
+                <button disabled={isLoading} className="button pb-1.5 pt-2 px-5  bg-black rounded text-white px-2 ">
+                  {isLoading ? 'Loading ...' : t("submit")}
                 </button>
               </div>
             </form>

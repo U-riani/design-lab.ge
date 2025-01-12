@@ -94,9 +94,9 @@ const AboutUs = () => {
       <div>
         <button
           onClick={handleSubmit}
-          className="px-6 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="px-6 py-2 text-white bg-green-600 hover:bg-indigo-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
-          {t("Add")}
+          Add
         </button>
       </div>
     </div>

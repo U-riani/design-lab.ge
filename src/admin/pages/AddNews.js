@@ -153,7 +153,7 @@ const AddNews = () => {
       <div className="mt-4 flex space-x-4">
         <button
           onClick={handleSubmit}
-          className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700"
         >
           {t("Save News Article")}
         </button>

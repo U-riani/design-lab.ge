@@ -327,9 +327,9 @@ const AdminAddDesigner = () => {
                   <button
                     disabled={loading}
                     onClick={handleSubmit}
-                    className="w-full md:w-auto py-2 px-4 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700"
+                    className="w-full md:w-auto py-2 px-4 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700"
                   >
-                    {t("Submit")}
+                    Add
                   </button>
                 </div>
               </div>

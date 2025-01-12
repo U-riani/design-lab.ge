@@ -165,10 +165,10 @@ const AddPartners = () => {
           onClick={handleSubmit}
           disabled={isLoading}
           className={`mt-4 px-6 py-2 rounded text-white ${
-            isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
+            isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-green-500 hover:bg-green-600"
           }`}
         >
-          {isLoading ? "Submitting..." : "Submit"}
+          {isLoading ? "Adding..." : "Add"}
         </button>
       </div>
     </div>

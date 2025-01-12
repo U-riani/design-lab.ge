@@ -62,7 +62,7 @@ const Navbar = () => {
           to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <img src="/lab-logo.png" alt="logo" />
+          <img className="h-[40px] lg:h-[35px]" src="/images/main-logo1.png" alt="logo" />
           {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Logo
           </span> */}

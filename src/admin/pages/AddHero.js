@@ -122,7 +122,7 @@ const AddHero = () => {
           onClick={handleSubmit}
           disabled={isLoading}
           className={`px-4 py-2 font-medium text-white rounded shadow-sm ${
-            isLoading ? "bg-blue-300 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+            isLoading ? "bg-blue-300 cursor-not-allowed" : "bg-green-600 hover:bg-blue-700"
           }`}
         >
           {isLoading ? (
@@ -147,7 +147,7 @@ const AddHero = () => {
               ></path>
             </svg>
           ) : (
-            "Submit"
+            "Add"
           )}
         </button>
       </div>
